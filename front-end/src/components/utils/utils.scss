@@ -1,0 +1,20 @@
+@import '../theme/theme';
+
+@mixin centerDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin inputIcon($left) {
+  position: absolute;
+  top: 50%;
+  left: $left;
+  transform: translate($left, -50%);
+
+  @media (min-width: $screen-small) {
+    left: $left + 3;
+    transform: translate($left + 3, -50%);
+  }
+}

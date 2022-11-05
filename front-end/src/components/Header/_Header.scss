@@ -1,0 +1,122 @@
+@import '../theme/theme';
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  @media (min-width: $screen-small) {
+    padding: 20px 30px;
+  }
+
+  &-logo {
+    & > svg {
+      font-size: 20px;
+
+      @media (min-width: $screen-small) {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.navigation-wrapper {
+  display: flex;
+  margin-left: 16px;
+
+  &-item {
+    position: relative;
+
+    &:hover {
+      border-bottom: 1px solid $color-black;
+    }
+  }
+
+  @media (min-width: $screen-small) {
+    margin-left: 32px;
+  }
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+
+  &__header {
+    font-size: 16px;
+    margin-left: 12px;
+    text-transform: uppercase;
+
+    @media (min-width: $screen-small) {
+      font-size: 24px;
+    }
+  }
+}
+
+.header-button {
+  background-color: transparent;
+  color: $color-grey-text;
+  cursor: pointer;
+  display: none;
+  font-size: 16px;
+  padding: 10px;
+  transition: 0.3s;
+
+  & > svg {
+    margin-left: 8px;
+  }
+
+  &:not(:first-child) {
+    margin-left: 12px;
+  }
+
+  &:hover:not(.header-button--register) {
+    color: $color-black;
+  }
+
+  @media (min-width: $screen-tablet) {
+    display: inline-block;
+  }
+
+  &--register {
+    background-color: $color-form-button;
+    border-radius: 5px;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-black;
+    }
+  }
+
+  &--menu {
+    margin-right: 12px;
+
+    @media (min-width: $screen-tablet) {
+      display: none;
+    }
+  }
+}
+
+.header-floating-list {
+  display: none;
+  position: absolute;
+  padding: 0 10px;
+  text-align: center;
+
+  @media (min-width: $screen-tablet) {
+    display: block;
+  }
+
+  &-item:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  &-button {
+    color: $color-grey-text;
+    transition: 0.3s;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}

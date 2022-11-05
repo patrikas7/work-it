@@ -1,0 +1,158 @@
+@import '../theme/theme';
+@import '../utils/utils';
+
+.login-container {
+  background-color: $color-white;
+  border-radius: 10px;
+  padding: 70px 15px 20px;
+  margin: 50px auto;
+  width: 85%;
+
+  @media (min-width: $screen-tablet) {
+    padding: 70px 70px 20px;
+    width: 70%;
+  }
+
+  @media (min-width: $screen-small) {
+    display: flex;
+    gap: 50px;
+    padding: 100px 50px 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  @media (min-width: $screen-desktop) {
+    padding: 100px 200px 0;
+  }
+
+  &-left {
+    display: none;
+
+    @media (min-width: $screen-small) {
+      display: block;
+      flex-basis: 50%;
+    }
+  }
+
+  &-right {
+    text-align: center;
+    flex-basis: 50%;
+
+    & > h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 54px;
+    }
+  }
+
+  &-icon {
+    font-size: 120px;
+  }
+
+  &-image {
+    max-width: 100%;
+  }
+}
+
+.login-container-icon-wrapper {
+  @include centerDiv;
+}
+
+.form-input-container {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form-input {
+  background-color: $color-input-background;
+  border-radius: $border-radius-form;
+  border: none;
+  color: $color-input-placeholder;
+  font-size: 16px;
+  height: 50px;
+  padding-left: 65px;
+  width: 100%;
+
+  &-icon {
+    @include inputIcon(7%);
+    color: $color-input-placeholder;
+    font-size: 16px;
+
+    @media (min-width: $screen-small) {
+      @include inputIcon(5%);
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    & + span {
+      color: $color-form-button;
+      top: 50%;
+      left: 5%;
+      transform: translate(5%, -50%);
+      transition: all 0.4s;
+
+      @media (min-width: $screen-small) {
+        left: 7%;
+        transform: translate(7%, -50%);
+      }
+    }
+  }
+}
+
+.form-button {
+  background-color: $color-form-button;
+  border-radius: $border-radius-form;
+  color: $color-white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  height: 50px;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-black;
+  }
+}
+
+.forgot-logins-container {
+  font-size: 13px;
+  margin-top: 24px;
+  transition: all 0.4s;
+
+  &-text {
+    color: $color-span;
+  }
+
+  &-link {
+    color: $color-input-placeholder;
+    margin-left: 5px;
+
+    &:hover {
+      color: $color-form-button;
+    }
+  }
+}
+
+.registration-button-container {
+  color: $color-input-placeholder;
+  font-size: 13px;
+  margin-top: 136px;
+  text-align: center;
+  transition: all 0.4s;
+
+  &:hover {
+    color: $color-form-button;
+  }
+}
+
+.registration-button-icon {
+  margin-left: 5px;
+}

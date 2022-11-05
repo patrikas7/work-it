@@ -1,0 +1,69 @@
+@import '../../theme/theme';
+
+.job-teaser-wrapper {
+  border-radius: 5px;
+  box-shadow: $color-box-shadow 0px 8px 24px;
+  cursor: pointer;
+  display: flex;
+  padding: 20px 30px;
+  transition: all 0.4s;
+  width: 960px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+}
+
+.job-teaser-photo {
+  width: 150px;
+}
+
+.job-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 40px;
+  width: 100%;
+}
+
+.company-name {
+  color: $color-span;
+}
+
+.job-position-name {
+  font-size: 32px;
+  margin-top: 12px;
+}
+
+.job-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-detail {
+  color: $color-span;
+
+  & > svg {
+    margin-right: 12px;
+  }
+
+  &:first-child {
+    margin-right: 24px;
+  }
+}
+
+.job-details-button {
+  color: $color-white;
+  background-color: $color-form-button;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: $color-black;
+  }
+}

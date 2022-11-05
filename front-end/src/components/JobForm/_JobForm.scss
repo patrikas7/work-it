@@ -1,0 +1,9 @@
+@import '../theme/theme';
+
+.job-form-container {
+  border-radius: 5px;
+  box-shadow: $color-box-shadow 0px 8px 24px;
+  padding: 30px 50px;
+  margin: 50px auto;
+  width: 768px;
+}

@@ -1,0 +1,65 @@
+@import '../theme/theme';
+@import '../utils/utils';
+
+.filters-container {
+  border-radius: 5px;
+  box-shadow: $color-box-shadow 0px 8px 24px;
+  padding: 30px 20px;
+  width: 300px;
+
+  & > h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.filters-input-wrapper {
+  position: relative;
+  margin-top: 30px;
+}
+
+.filters-input {
+  border: 1px solid $color-box-shadow;
+  border-radius: 5px;
+  color: $color-input-placeholder;
+  font-size: 16px;
+  padding: 10px 0 10px 40px;
+  outline: none;
+  width: 100%;
+
+  &:focus {
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &-icon {
+    @include inputIcon(2%);
+    color: $color-input-placeholder;
+    font-size: 16px;
+  }
+}
+
+.slider-label {
+  font-size: 12px;
+}
+
+.filters-button-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.filters-button {
+  background-color: $color-form-button;
+  border: none;
+  border-radius: 5px;
+  color: $color-white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 40px;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: $color-black;
+  }
+}
