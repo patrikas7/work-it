@@ -20,7 +20,7 @@ const ClientSchema: Schema = extendSchema(
         name: { type: String, required: true },
         surname: { type: String, required: true },
         dateOfBirth: { type: Date, required: true },
-        Gender: { type: Gender, required: true }
+        Gender: { type: String, enum: Gender, required: true }
     },
     { versionKey: false }
 );

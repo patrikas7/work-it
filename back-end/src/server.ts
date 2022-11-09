@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { config } from './config/config';
 import Logging from './library/Logging';
 import jobOfferRoutes from './routes/JobOffers';
+import resumeRoutes from './routes/Resumes';
 
 const router = express();
 
@@ -45,5 +46,6 @@ const startServer = () => {
     });
 
     router.use('/jobOffers', jobOfferRoutes);
+    router.use('/resumes', resumeRoutes);
     http.createServer(router).listen(config.server.port, () => Logging.info(`⚡️[server]: Server is running at http://localhost:${config.server.port}`));
 };

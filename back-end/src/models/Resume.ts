@@ -15,7 +15,7 @@ export interface IResume {
     Languages?: string;
     Certificates?: string;
     Links?: string;
-    Client?: string;
+    clientId: string;
 }
 
 export interface IResumeModel extends IResume, Document {}
@@ -26,7 +26,7 @@ const ResumeSchema: Schema = new Schema(
         surname: { type: String, required: true },
         dateOfBirth: { type: Date, required: true },
         email: { type: String, required: true },
-        gender: { type: Gender, required: true },
+        gender: { type: String, enum: Gender, required: true },
         phoneNumber: { type: String, required: true },
         description: { type: String, required: true },
         skills: { type: String },
@@ -35,7 +35,7 @@ const ResumeSchema: Schema = new Schema(
         languages: { type: String },
         certificates: { type: String },
         links: { type: String },
-        client: { type: Schema.Types.ObjectId, required: true, ref: 'Client' }
+        clientId: { type: Schema.Types.ObjectId, required: true, ref: 'Client' }
     },
     {
         versionKey: false

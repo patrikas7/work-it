@@ -1,7 +1,6 @@
 import express from 'express';
 import controller from '../controllers/JobOffersController';
 import { Schemas, Validate, ValidateId } from '../middleware/SchemaValidator';
-import { NextFunction, Request, Response } from 'express';
 
 const router = express.Router();
 
