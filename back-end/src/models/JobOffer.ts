@@ -8,7 +8,7 @@ export interface IJobOffer {
     EmployerOffer: string;
     Salary: string;
     WorkingTime: string;
-    Employer: string;
+    EmployerId: string;
     Period?: string;
     Type: JobOfferType;
 }
@@ -23,7 +23,7 @@ const JobOfferSchema: Schema = new Schema(
         employerOffer: { type: String, required: true },
         salary: { type: String, required: true },
         workingTime: { type: String, required: true },
-        employer: { type: Schema.Types.ObjectId, required: true, ref: 'Employer' },
+        employerId: { type: Schema.Types.ObjectId, required: true, ref: 'Employer' },
         period: { type: String },
         type: { type: String, enum: JobOfferType, required: true }
     },

@@ -5,6 +5,8 @@ import { config } from './config/config';
 import Logging from './library/Logging';
 import jobOfferRoutes from './routes/JobOffers';
 import resumeRoutes from './routes/Resumes';
+import freelanceOfferRoutes from './routes/FreelanceOffer';
+import authRoutes from './routes/Auth';
 
 const router = express();
 
@@ -47,5 +49,8 @@ const startServer = () => {
 
     router.use('/jobOffers', jobOfferRoutes);
     router.use('/resumes', resumeRoutes);
+    router.use('/freelanceOffers', freelanceOfferRoutes);
+    router.use('/auth', authRoutes);
+
     http.createServer(router).listen(config.server.port, () => Logging.info(`⚡️[server]: Server is running at http://localhost:${config.server.port}`));
 };

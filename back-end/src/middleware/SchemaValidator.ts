@@ -4,6 +4,9 @@ import Logging from '../library/Logging';
 import { IJobOffer } from '../models/JobOffer';
 import { Gender, JobOfferType } from '../utils/enums';
 import { IResume } from '../models/Resume';
+import { IFreelanceOffer } from '../models/FreelanceOffer';
+import { IClient } from '../models/Client';
+import { IEmployer } from '../models/Employer';
 
 export const Validate = (schema: ObjectSchema) => {
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -36,7 +39,7 @@ export const Schemas = {
             EmployerOffer: Joi.string().required(),
             Salary: Joi.string().required(),
             WorkingTime: Joi.string().required(),
-            Employer: Joi.string().required(),
+            EmployerId: Joi.string().required(),
             Period: Joi.string(),
             Type: Joi.string().valid(JobOfferType.PERMANENT, JobOfferType.TEMPORARY).required()
         }),
@@ -82,6 +85,46 @@ export const Schemas = {
             Languages: Joi.string(),
             Certificates: Joi.string(),
             Links: Joi.string()
+        })
+    },
+    freelanceOffer: {
+        create: Joi.object<IFreelanceOffer>({
+            Name: Joi.string().required(),
+            Description: Joi.string().required(),
+            Period: Joi.string().required(),
+            Salary: Joi.string().required(),
+            IsFreelanceSearch: Joi.boolean().required(),
+            IncludeResume: Joi.boolean().required(),
+            clientId: Joi.string().required()
+        }),
+        update: Joi.object<IFreelanceOffer>({
+            Name: Joi.string().required(),
+            Description: Joi.string().required(),
+            Period: Joi.string().required(),
+            Salary: Joi.string().required(),
+            IsFreelanceSearch: Joi.boolean().required(),
+            IncludeResume: Joi.boolean().required()
+        })
+    },
+    client: {
+        create: Joi.object<IClient>({
+            Name: Joi.string().required(),
+            Surname: Joi.string().required(),
+            DateOfBirth: Joi.date().required(),
+            Gender: Joi.string().valid(Gender.FEMALE, Gender.MALE).required(),
+            Email: Joi.string().required(),
+            Password: Joi.string().required()
+        })
+    },
+    employer: {
+        create: Joi.object<IEmployer>({
+            Name: Joi.string().required(),
+            Address: Joi.string().required(),
+            City: Joi.string().required(),
+            Email: Joi.string().required(),
+            Password: Joi.string().required(),
+            Logo: Joi.string(),
+            Description: Joi.string()
         })
     }
 };

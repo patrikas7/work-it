@@ -74,7 +74,7 @@ const deleteResume = async (req: Request, res: Response) => {
 
     try {
         const resume = await Resume.findByIdAndDelete(resumeId);
-        return resume ? res.status(201).json({ resume, message: 'Deleted' }) : res.status(404).json({ message: `Job offer with id ${resumeId} was not found` });
+        return resume ? res.status(201).json({ resume, message: 'Deleted' }) : res.status(404).json({ message: `Resume with id ${resumeId} was not found` });
     } catch (error) {
         Logging.error(error);
         res.status(500).json({ error });

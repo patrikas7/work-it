@@ -7,7 +7,7 @@ export interface IFreelanceOffer {
     Salary: string;
     IsFreelanceSearch: boolean;
     IncludeResume: boolean;
-    client: string;
+    clientId: string;
 }
 
 export interface IFreelanceOfferModel extends IFreelanceOffer, Document {}
@@ -20,7 +20,7 @@ const FreelanceOfferSchema: Schema = new Schema(
         salary: { type: String, required: true },
         isFreelanceSearch: { type: Boolean, required: true },
         includeResume: { type: Boolean, required: true },
-        client: { type: Schema.Types.ObjectId, required: true, ref: 'Client' }
+        clientId: { type: Schema.Types.ObjectId, required: true, ref: 'Client' }
     },
     {
         versionKey: false

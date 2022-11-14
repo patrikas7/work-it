@@ -1,28 +1,38 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { IUser } from './User';
-import User from './User';
 import { Gender } from '../utils/enums';
+import bcrypt from 'bcrypt';
 
-const extendSchema = require('mongoose-extend-schema');
-
-export interface IClient extends IUser {
+export interface IClient {
     Name: string;
     Surname: string;
     DateOfBirth: Date;
     Gender: Gender;
+    Email: string;
+    Password: string;
 }
 
 export interface IClientModel extends IClient, Document {}
 
-const ClientSchema: Schema = extendSchema(
-    User,
+const ClientSchema: Schema = new Schema(
     {
         name: { type: String, required: true },
         surname: { type: String, required: true },
         dateOfBirth: { type: Date, required: true },
-        Gender: { type: String, enum: Gender, required: true }
+        gender: { type: String, enum: Gender, required: true },
+        email: { type: String, required: true },
+        password: { type: String, required: true }
     },
     { versionKey: false }
 );
+
+const SALT_ROUNDS = 8;
+
+ClientSchema.pre('save', async function (next) {
+    const user = this;
+    if (user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, SALT_ROUNDS);
+    }
+    next();
+});
 
 export default mongoose.model<IClientModel>('Client', ClientSchema);

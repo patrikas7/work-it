@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.route('/').get(controller.getResumes).post(Validate(Schemas.resume.create), controller.postResume);
 
-router.route('/:id').get(ValidateId, controller.getResume).put(ValidateId, Validate(Schemas.resume.update)).delete(ValidateId, controller.deleteResume);
+router.route('/:id').get(ValidateId, controller.getResume).put(ValidateId, Validate(Schemas.resume.update), controller.putResume).delete(ValidateId, controller.deleteResume);
 
 export = router;
